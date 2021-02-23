@@ -52,10 +52,11 @@ public class LibraryRunner {
 		customerList1.printCustomerSearchResults(3);
 		
 		// Update Customer
-		customerList1.updateintCustomers(1, 2, "age");
+		customerList1.updateintCustomers(1, 12, "Age");
 		customerList1.updateStringCustomers(1, "Holly", "First Name");
 	
-	
+		// Find Customer
+		customerList1.printCustomerSearchResults(1);
 	}
 
 }
