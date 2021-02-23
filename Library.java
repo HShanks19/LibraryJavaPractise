@@ -55,29 +55,29 @@ public class Library {
 		
 	public void checkoutPublications(String input_title) {
 		for (Publication p1 : this.Library) {
+			Publication selectedPublication = findPublications(input_title);
 			if (p1.gettitle() == input_title && p1.getstatus() == "Available") {
-				p1.setstatus("Unavailable");
+				selectedPublication.setstatus("Unavailable");
 				p1.printCheckout();
-			} else if (p1.getstatus() == "Unavailable"){
+			} else if (p1.gettitle() == input_title && p1.getstatus() == "Unavailable"){
 				p1.printCheckoutError();
 			}
 		}
-		return;
 	}
+
 	
 	// Check-in Book from Title 
 	
 	public void checkinPublications(String input_title) {
-
 		for (Publication p1 : this.Library) {
+			Publication selectedPublication = findPublications(input_title);
 			if (p1.gettitle() == input_title && p1.getstatus() == "Unavailable") {
+				selectedPublication.setstatus("Available");
 				p1.printCheckin();
-				p1.setstatus("Available");
-			} else if (p1.gettitle() == input_title && p1.getstatus() == "Available"){
+			} else if (p1.gettitle() == input_title && p1.getstatus() == "Available") {
 				p1.printCheckinError();
 			}
 		}
-		return;
 	}
 	
 	// Update Publication information
@@ -105,7 +105,7 @@ public class Library {
 	public void updateStringPublications(String input_value, String new_value, String option) {
 		Publication selectedPublication = findPublications(input_value);
 		if (option == "title") {
-				selectedPublication.settitle(new_value);
+			selectedPublication.settitle(new_value);
 		} else if (option == "author") {
 			selectedPublication.setauthor(new_value); 
 		}

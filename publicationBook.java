@@ -4,20 +4,20 @@ public class publicationBook extends Publication{
 
 	public publicationBook(String title, String author, int yearPublished, int publicationLegnth, String ISBN_number) {
 		super(title, author, yearPublished, publicationLegnth);
-		this.setISBNNumber(ISBNNumber);
+		this.setISBN_number(ISBN_number);
 	}
 
-	private String ISBNNumber;
+	private String ISBN_number;
 	
 	public String getISBN_number(){
-        return ISBNNumber;
+        return ISBN_number;
 	}
-	public void setISBNNumber(String newISBNNumber){
-        this.ISBNNumber = newISBNNumber;
+	public void setISBN_number(String newISBN_number){
+        this.ISBN_number = newISBN_number;
 	}
 	@Override
 	public String toString() {
-		return "Publication [id: " + getinventory_id() + ", title: " + gettitle() + ", author: " + getauthor() + ", Year Published: " + getyearPublished() + ", Publication Legnth: " + getpublicationLegnth() +", ISBN number: " + ISBNNumber +", Borrow Period: " + borrowPeriod() +"]";
+		return "Publication [id: " + getinventory_id() + ", title: " + gettitle() + ", author: " + getauthor() + ", Year Published: " + getyearPublished() + ", Publication Legnth: " + getpublicationLegnth() +", ISBN number: " + getISBN_number() +", Borrow Period: " + borrowPeriod() +"]";
 	}
 	@Override
 	public String borrowPeriod() {

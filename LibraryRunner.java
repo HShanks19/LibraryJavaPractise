@@ -14,7 +14,6 @@ public class LibraryRunner {
 		libraryInventory.addPublication(new publicationNewspapers("The Sunday Times", "Boswell, J. ", 2017, 13, "Iceburg Lettuce hit by titanic rise in price"));
 		libraryInventory.addPublication(new publicationNewspapers("Blue Ridge Now", "McCraw, A. ", 2001, 5, "Murderer says detective ruined his reputation"));
 		
-		
 		// Print Library
 		libraryInventory.printLibrary();
 		

@@ -26,7 +26,7 @@ public abstract class Publication {
 	
 	@Override
 	public String toString() {
-		return "Publication [id: " + inventory_id + ", title: " + title + ", author: " + author + ", Year Published: " + yearPublished + ", Publication Legnth: " + publicationLegnth +"]";
+		return "Publication [id: " + inventory_id + ", title: " + title + ", author: " + author + ", Year Published: " + yearPublished + ", Publication Legnth: " + publicationLegnth + ", Status: " + status + "]";
 	}
 	
 	
@@ -77,6 +77,7 @@ public abstract class Publication {
 	public int getpublicationLegnth(){
         return publicationLegnth;
 	}
+	
 	public void setpublicationLegnth(int newpublicationLegnth){
         this.publicationLegnth = newpublicationLegnth;
 	}
