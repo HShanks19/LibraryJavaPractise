@@ -26,8 +26,8 @@ public class LibraryTesting {
 	public void test2() {
 		String expected = "Publication [id: 1, title: Harry Potter and the Philosophers Stone, author: Rowling, JK , Year Published: 1997, Publication Legnth: 223, ISBN number: 0-7475-3269-9, Borrow Period: 2 weeks]";
 		library1.addPublication(p1);
-		library1.findPublications("Harry Potter and the Philosophers Stone");
-		String actual = p1.toString();
+		Publication p2 = library1.findPublications("Harry Potter and the Philosophers Stone");
+		String actual = p2.toString();
 	 
 		assertEquals(expected,actual);
 	}
@@ -43,6 +43,24 @@ public class LibraryTesting {
 		assertEquals(expected,actual);
 	}
 	
+	@Test
+	public void test4() {
+		String expected = "Available";
+		library1.addPublication(p1);
+		library1.checkinPublications("Harry Potter and the Philosophers Stone");
+		String actual = p1.getstatus();
+	 
+		assertEquals(expected,actual);
+	}
 	
-
+	@Test
+	public void test5() {
+		String expected = "Publication [id: 1, title: Harry Potter and the Philosophers StoneA, author: Rowling, JK , Year Published: 1997, Publication Legnth: 223, ISBN number: 0-7475-3269-9, Borrow Period: 2 weeks]";
+		library1.addPublication(p1);
+		library1.updateStringPublications("Harry Potter and the Philosophers Stone", "Harry Potter and the Philosophers StoneA", "title");
+		String actual = p1.toString();
+	 
+		assertEquals(expected,actual);
+	}
+	
 }
