@@ -35,7 +35,6 @@ public class Library {
     }
 
 	
-	
 	//remove publication by id
 	public boolean removePublication(Publication publication) {
 		return this.Library.remove(publication);

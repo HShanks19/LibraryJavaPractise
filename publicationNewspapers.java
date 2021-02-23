@@ -1,6 +1,6 @@
 package LibraryApp;
 
-public class publicationNewspapers extends Publication {
+public class publicationNewspapers extends Publication implements borrow{
 
 	public publicationNewspapers(String title, String author, int yearPublished, int publicationLegnth, String headline) {
 		super(title, author, yearPublished, publicationLegnth);
@@ -25,6 +25,9 @@ public class publicationNewspapers extends Publication {
 	@Override
 	public String borrowPeriod() {
 		return "1 week";
+	}
+	public void borrowable() {
+		System.out.println("Item can be borrowed.");
 	}
 
 }

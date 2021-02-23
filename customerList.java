@@ -8,13 +8,13 @@ public class customerList {
 	
 	private int customerCount = 1;
 
-	// add Publication
+	// add Person
 	public boolean registerPerson(Customer person) {
 		person.setcustomer_id(customerCount++);
 		return this.customerList.add(person);
 	}
 		
-	// print library
+	// print list
 	public void printCustomerList() {
 		System.out.println(this.customerList);
 	}
