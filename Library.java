@@ -3,7 +3,9 @@ package LibraryApp;
 import java.util.ArrayList;
 
 public class Library {
-
+	
+	//inventory
+	
 	public ArrayList<Publication> Library = new ArrayList<>();
 		
 	private int publicationCount = 1;
