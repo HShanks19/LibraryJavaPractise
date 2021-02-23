@@ -29,6 +29,7 @@ public abstract class Publication {
 		return "Publication [id: " + inventory_id + ", title: " + title + ", author: " + author + ", Year Published: " + yearPublished + ", Publication Legnth: " + publicationLegnth +"]";
 	}
 	
+	
 	public void printCheckout() {
 		System.out.println("Item: " + title + " has been checked out of the library. You have: " + borrowPeriod() + " to return.");
 	}

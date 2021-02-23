@@ -80,10 +80,45 @@ public class Library {
 		return;
 	}
 	
+	// Update Publication information
 	
+	//Find information
+	public Publication findPublications(String input_title) {
+
+		for (Publication p1 : this.Library) {
+			if (p1.gettitle() == input_title) {
+				return p1;
+			}
+		}
+		return null;
+}
+	public void printSearchResults(String input_title) {
+		Publication p1 = findPublications(input_title);
+			if (p1.gettitle() == input_title) {
+				System.out.println("Search Result Found: " + findPublications(input_title));
+			} else {
+				System.out.println("Search Result not Found");
+			}
+		}
 	
+	//Update
+	public void updateStringPublications(String input_value, String new_value, String option) {
+		Publication selectedPublication = findPublications(input_value);
+		if (option == "title") {
+				selectedPublication.settitle(new_value);
+		} else if (option == "author") {
+			selectedPublication.setauthor(new_value); 
+		}
+	}
 	
-	
+	public void updateintPublications(String input_title, int new_value, String option) {
+		Publication selectedPublication = findPublications(input_title);
+		if (option == "Year Published") {
+				selectedPublication.setyearPublished(new_value);
+		} else if (option == "Publication Legnth") {
+			selectedPublication.setpublicationLegnth(new_value); 
+		}
+	}
 	
 	
 	

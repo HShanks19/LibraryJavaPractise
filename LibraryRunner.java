@@ -30,7 +30,12 @@ public class LibraryRunner {
 		// Print Available Library
 		libraryInventory.printAvailableLibrary();
 		
+		// Find Publication
+		libraryInventory.printSearchResults("River Pollution and Health in Indonesia");
+		
 		// Update Publication
+		libraryInventory.updateStringPublications("River Pollution and Health in Indonesia", "River Pollution and Health in Indonesia Amended", "title");
+		libraryInventory.updateintPublications("River Pollution and Health in Indonesia Amended", 25, "Publication Legnth");
 		
 		// Adding People
 		customerList1.registerPerson(new Customer("Tracy", "Shanks", 45, "YO5 6ND"));
@@ -44,8 +49,12 @@ public class LibraryRunner {
 		//Delete Person by Customer id
 		customerList1.removePersonById(2);
 		
-		//Update Person
-	
+		// Find Customer
+		customerList1.printCustomerSearchResults(3);
+		
+		// Update Customer
+		customerList1.updateintCustomers(1, 2, "age");
+		customerList1.updateStringCustomers(1, "Holly", "First Name");
 	
 	
 	}

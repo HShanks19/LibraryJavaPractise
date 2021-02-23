@@ -33,4 +33,44 @@ public class customerList {
 
 		return false;
 	}
+	//Find information
+		public Customer findCustomers(int customer_id) {
+
+			for (Customer p1 : this.customerList) {
+				if (p1.getcustomer_id() == customer_id) {
+					return p1;
+				}
+			}
+			return null;
+	}
+		public void printCustomerSearchResults(int input_id) {
+			Customer p1 = findCustomers(input_id);
+				if (p1.getcustomer_id() == input_id) {
+					System.out.println("Search Result Found: " + findCustomers(input_id));
+				} else {
+					System.out.println("Search Result not Found");
+				}
+			}
+		
+		//Update
+		public void updateStringCustomers(int customer_id, String new_value, String option) {
+			Customer selectedCustomer = findCustomers(customer_id);
+			if (option == "First Name") {
+					selectedCustomer.setfirstName(new_value);
+			} else if (option == "Surname") {
+				selectedCustomer.setsurname(new_value); 
+			} else if (option == "Postcode") {
+				selectedCustomer.setpostcode(new_value); 
+			}
+		}
+		
+		public void updateintCustomers(int customer_id, int new_value, String option) {
+			Customer selectedCustomer = findCustomers(customer_id);
+			if (option == "Age") {
+					selectedCustomer.setage(new_value);
+			
+			}
+		
+		}
+	
 }
