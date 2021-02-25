@@ -44,13 +44,19 @@ public class Library {
 		for (Publication p1 : this.Library) {
 			if (p1.getinventory_id() == input_id) {
 				return this.removePublication(p1);
+			} 
+		}
+		if (input_id < 0 || input_id >= this.Library.size()) {
+			try {
+				throw new IndexOutOfBoundsException();
+			} catch (Exception e) {
+				System.out.println(e);
 			}
 		}
-
 		return false;
 	}
 	
-	// Checkout Book from Title
+	// Checkout Book from Title including exception handling
 		
 	public void checkoutPublications(String input_title) {
 		for (Publication p1 : this.Library) {
@@ -59,12 +65,15 @@ public class Library {
 				selectedPublication.setstatus("Unavailable");
 				p1.printCheckout();
 			} else if (p1.gettitle() == input_title && p1.getstatus() == "Unavailable"){
-				p1.printCheckoutError();
+				try {
+					throw new IncorrectTitleException("The Publication " + input_title + " is currently checked out by another Library Member. Please try again soon.");
+				} catch (Exception e) {
+					System.out.println(e);
+				}
 			}
 		}
 	}
 
-	
 	// Check-in Book from Title 
 	
 	public void checkinPublications(String input_title) {
@@ -74,7 +83,11 @@ public class Library {
 				selectedPublication.setstatus("Available");
 				p1.printCheckin();
 			} else if (p1.gettitle() == input_title && p1.getstatus() == "Available") {
-				p1.printCheckinError();
+				try {
+					throw new IncorrectTitleException( input_title + " is not currently checked out of the Library");
+				} catch (Exception e) {
+					System.out.println(e);
+				}
 			}
 		}
 	}
@@ -87,18 +100,24 @@ public class Library {
 		for (Publication p1 : this.Library) {
 			if (p1.gettitle() == input_title) {
 				return p1;
-			}
+			} 
 		}
 		return null;
 }
 	public void printSearchResults(String input_title) {
 		Publication p1 = findPublications(input_title);
-			if (p1.gettitle() == input_title) {
-				System.out.println("Search Result Found: " + findPublications(input_title));
-			} else {
-				System.out.println("Search Result not Found");
+		if (p1 != null ) {
+			System.out.println("Search Result Found: " + findPublications(input_title));
+		} else {
+			try {
+				throw new IncorrectTitleException( input_title + " is not a publication in this library");
+			} catch (Exception e) {
+				System.out.println(e);
 			}
 		}
+	}
+	
+	//Look at throwing Search Exception
 	
 	//Update
 	public void updateStringPublications(String input_value, String new_value, String option) {
@@ -117,6 +136,5 @@ public class Library {
 		} else if (option == "Publication Legnth") {
 			selectedPublication.setpublicationLegnth(new_value); 
 		}
-	}
-	
+	}	
 }

@@ -20,17 +20,23 @@ public class LibraryRunner {
 		// Remove Publication by Inventory ID
 		libraryInventory.removePublicationById(2);
 		
+		//Exception Practice 
+		libraryInventory.removePublicationById(76); //Throws IndexOutOfBoundsException
+		
 		//Checkout Publication
 		libraryInventory.checkoutPublications("Harry Potter and the Philosophers Stone");
+		libraryInventory.checkoutPublications("Harry Potter and the Philosophers Stone"); //Throws IncorrectTitleException
 		
 		//Check-in Publication
 		libraryInventory.checkinPublications("Harry Potter and the Philosophers Stone");
+		libraryInventory.checkinPublications("Harry Potter and the Philosophers Stone"); // Throws IncorrectTitleException
 		
 		// Print Available Library
 		libraryInventory.printAvailableLibrary();
 		
 		// Find Publication
 		libraryInventory.printSearchResults("River Pollution and Health in Indonesia");
+		libraryInventory.printSearchResults("Incorrect Title");
 		
 		// Update Publication
 		libraryInventory.updateStringPublications("River Pollution and Health in Indonesia", "River Pollution and Health in Indonesia Amended", "title");
@@ -46,7 +52,7 @@ public class LibraryRunner {
 		customerList1.printCustomerList();
 		
 		//Delete Person by Customer id
-		customerList1.removePersonById(2);
+		customerList1.removePersonById(2);		
 		
 		// Find Customer
 		customerList1.printCustomerSearchResults(3);
